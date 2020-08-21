@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<style>
+    body {
+        font-family: "Roboto", sans-serif;
+        font-size: 18px;
+        background-color: #fdfdfd;
+    }
+
+    .head_text {
+        color: white;
+    }
+
+    .card {
+        box-shadow: 0 16px 48px #E3E7EB;
+    }
+</style>
+
+<header class="masthead page-header container-fluid">
+    <div class="overlay"></div>
+    <div class="container px-5 text-white text-center">
+        <div class="masthead-heading px-5 pb-5 text-uppercase">Deejay Tech</div>
+        <p class="masthead-subheading font-weight-light pb-5 mb-0" style="font-size: 1.5rem; font-family: Monotype Corsiva">
+            ---
+        </p>
+        <div class="masthead-subheading pb-3" style="font-size: 1.5rem; font-family: Monotype Corsiva">
+            <h3>Visit our blog to see some of our works<br> and other amazing contents</h3>
+        </div>
+        <a href="{% url 'blog' %}" class="btn btn-md btn-primary"><h5>Visit blog</h5></a>
+    </div>
+</header>
+
+<section class="features-icons bg-light text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+            <div class="features-icons-icon d-flex">
+              <i class="icon-screen-tablet m-auto text-primary"></i>
+            </div>
+            <h3>Web design</h3>
+            <p class="lead mb-0">We create nice user responsive website that stand out on any mobile device with amazing themes</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+            <div class="features-icons-icon d-flex">
+              <i class="icon-organization m-auto text-primary"></i>
+            </div>
+            <h3>Advertisement</h3>
+            <p class="lead mb-0">We can also help you to advertise your brand depending on the package you are comfortable with</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="features-icons-item mx-auto mb-0 mb-lg-3">
+            <div class="features-icons-icon d-flex">
+              <i class="icon-screen-desktop m-auto text-primary"></i>
+            </div>
+            <h3>Freelancing</h3>
+            <p class="lead mb-0">We specilize on computer programming and problem solving. Need our help you can contact us</p>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+<section class="showcase">
+    <div class="container-fluid p-0">
+      <div class="row no-gutters">
+
+        <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('{% static 'images\web2.jpg' %}');"></div>
+        <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+          <h2>Fully Responsive Websites</h2>
+          <p class="lead mb-0">When you leave your website to us to handle, you know that the theme will look great on any device, whether it's a phone, tablet, or desktop the page will behave responsively!</p>
+        </div>
+      </div>
+      <div class="row no-gutters">
+        <div class="col-lg-6 text-white showcase-img" style="background-image: url('{% static 'images\lens.jpg' %}');"></div>
+        <div class="col-lg-6 my-auto showcase-text">
+          <h2>Graphics Design</h2>
+          <p class="lead mb-0">We do photo shoot and nice graphics designs, with modern and classy concepts that you would like at very affordable prices</p>
+        </div>
+      </div>
+      <div class="row no-gutters">
+        <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('{% static 'images\code.jpg' %}');"></div>
+        <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+          <h2>Freelancing</h2>
+          <p class="lead mb-0">At deejay tech we specialize in computer programming. We offer nice backend and frontend programming, just contact us.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{%endblock%}

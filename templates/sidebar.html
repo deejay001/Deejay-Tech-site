@@ -1,0 +1,67 @@
+{% block sidebar %}
+
+<style>
+        .card{
+            box-shadow: 0 16px 48px #E3E7EB;
+        }
+
+</style>
+
+<!-- Sidebar Widgets Column -->
+    <div class="col-lg-4">
+            <div class="sidebar">
+
+              <h3 class="sidebar-title">Search</h3>
+              <div class="sidebar-item search-form">
+                <form action="">
+                  <input type="text">
+                  <button type="submit"><i class="icofont-search"></i></button>
+                </form>
+              </div><!-- End sidebar search formn-->
+
+              <h3 class="sidebar-title">Categories</h3>
+              <div class="sidebar-item categories">
+                <ul>
+                  <li><a href="{% url 'blog' %}">All<span></span></a></li>
+                  {% for cat in category %}
+                  <li><a href="{% url 'cat' cat.title %}">{{ cat.title }}<span>{{ category.post.count }}</span></a></li>
+                  {% endfor %}
+                </ul>
+
+              </div><!-- End sidebar categories-->
+
+              <h3 class="sidebar-title">Recent Posts</h3>
+              <div class="sidebar-item recent-posts">
+                {% for post in recent %}
+                <div class="post-item clearfix">
+                  <img src="{{ post.image.url }}" alt="">
+                  <h4><a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a></h4>
+                  <time datetime="2020-01-01">{{ post.created_on }}</time>
+                </div>
+                {% endfor %}
+              </div><!-- End sidebar recent posts-->
+
+              <h3 class="sidebar-title">Tags</h3>
+              <div class="sidebar-item tags">
+                <ul>
+                  <li><a href="#">App</a></li>
+                  <li><a href="#">IT</a></li>
+                  <li><a href="#">Business</a></li>
+                  <li><a href="#">Business</a></li>
+                  <li><a href="#">Mac</a></li>
+                  <li><a href="#">Design</a></li>
+                  <li><a href="#">Office</a></li>
+                  <li><a href="#">Creative</a></li>
+                  <li><a href="#">Studio</a></li>
+                  <li><a href="#">Smart</a></li>
+                  <li><a href="#">Tips</a></li>
+                  <li><a href="#">Marketing</a></li>
+                </ul>
+
+              </div><!-- End sidebar tags-->
+
+            </div><!-- End sidebar -->
+
+          </div><!-- End blog sidebar -->
+
+{% endblock sidebar %}

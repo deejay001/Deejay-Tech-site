@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+  <main id="main">
+
+    <!-- ======= Blog Section ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Blog</h2>
+
+          <ol>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'blog' %}">Blog</a></li>
+            <li>{{ post.title }}</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Blog Section -->
+
+    <!-- ======= Blog Section ======= -->
+    <section class="blog" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-lg-8 entries">
+
+            <article class="entry entry-single">
+              <div class="entry-img">
+                <img src="{{ post.image.url }}" alt="" class="img-fluid">
+              </div>
+
+              <h2 class="entry-title">
+                <a href="#">{{ post.title }}</a>
+              </h2>
+
+              <div class="entry-meta">
+                <ul>
+                  <li class="d-flex align-items-center"><i class="icofont-user"></i> <a href="#">{{ post.author }}</a></li>
+                  <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a href="#"><time datetime="2020-01-01">{{ post.created_on }}</time></a></li>
+                  <li class="d-flex align-items-center"><i class="icofont-comment"></i> <a href="#">{{ post.comments.count }} Comments</a></li>
+                </ul>
+              </div>
+
+              <div class="entry-content">
+                {{ post.content }}
+              </div>
+
+              <div class="entry-footer clearfix">
+                <div class="float-left">
+                  <i class="icofont-folder"></i>
+                  <ul class="cats">
+                    <li><a href="#">Business</a></li>
+                  </ul>
+
+                  <i class="icofont-tags"></i>
+                  <ul class="tags">
+                    <li><a href="#">Creative</a></li>
+                    <li><a href="#">Tips</a></li>
+                    <li><a href="#">Marketing</a></li>
+                  </ul>
+                </div>
+
+                <div class="float-right share">
+                  <a href="" title="Share on Twitter"><i class="icofont-twitter"></i></a>
+                  <a href="" title="Share on Facebook"><i class="icofont-facebook"></i></a>
+                  <a href="" title="Share on Instagram"><i class="icofont-instagram"></i></a>
+                </div>
+
+              </div>
+
+            </article><!-- End blog entry -->
+
+            <div class="blog-comments">
+
+              <h4 class="comments-count">{{ comments.count }} Comments</h4>
+
+              {% for comment in comments %}
+              <div id="comment-1" class="comment clearfix">
+                <img src="assets/img/comments-1.jpg" class="comment-img  float-left" alt="">
+                <h5><a href="#">{{ comment.name }}</a> <a href="#" class="reply"><i class="icofont-reply"></i> Reply</a></h5>
+                <time datetime="2020-01-01">{{ comment.created_on }}</time>
+                <p>
+                  {{ comment.body }}
+                </p>
+              </div><!-- End comment #1 -->
+              {% endfor %}
+
+              <div class="reply-form">
+                <h4>Leave a Reply</h4>
+                <p>Your email address will not be published. Required fields are marked * </p>
+                <form method="post" style="margin-top: 1.3em;">
+                {{ comment_form.as_p }}
+                {% csrf_token %}
+                <button type="submit" class="btn btn-primary  btn-lg">Submit</button>
+                </form>
+              </div>
+
+            </div><!-- End blog comments -->
+
+          </div><!-- End blog entries list -->
+          {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
+
+
+        </div><!-- End row -->
+
+      </div><!-- End container -->
+
+    </section><!-- End Blog Section -->
+
+  </main><!-- End #main -->
+
+{% endblock %}
