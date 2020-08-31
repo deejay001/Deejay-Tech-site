@@ -27,6 +27,7 @@ class Post(models.Model):
     slug = models.SlugField(max_length=30, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blog_posts')
     content = models.TextField()
+    music = models.FileField(upload_to='songs', null=True, blank=True)
     image = models.ImageField(upload_to='media')
     updated_on = models.DateTimeField(auto_now=True)
     created_on = models.DateTimeField(auto_now_add=True)
